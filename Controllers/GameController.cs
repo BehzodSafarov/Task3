@@ -68,7 +68,8 @@ public class GameController : ControllerBase
 
        int M = _calculateService.ValidateDigits(existGame.RandomNumber, model.insertNumber!)[0];
        int P = _calculateService.ValidateDigits(existGame.RandomNumber, model.insertNumber!)[1];
-       string pandM =$" M:{M-P}  P:{P}";
+       string pandM =$" M:{M}  P:{P}";
+
        var newGame = new GameModel
        {
         UserId = model.UserId,
