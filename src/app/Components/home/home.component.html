@@ -1,0 +1,11 @@
+
+<h1>Game Rules</h1>
+
+<form novalidate>
+    <h4>Insert your Name</h4>
+    <input class="form-control" [formControl]="controlName" [(ngModel)]="name" required minlength="4">
+  
+    <button [disabled]="controlName.invalid" (click)="OnCreateGamer()">Submit</button>
+    <button [routerLink]="['liders']">Liders</button>
+ 
+</form>
