@@ -55,7 +55,8 @@ public class GameController : ControllerBase
     [HttpPost("Play")]
     public IActionResult PlayGame(string guessNumber, string UserId)
     {
-       
+       if(guessNumber.Length !=4)
+       return BadRequest("Siz 4 honali son kiritishingiz kerak");
        var userId = int.Parse(UserId);
        if(Request)
        {
