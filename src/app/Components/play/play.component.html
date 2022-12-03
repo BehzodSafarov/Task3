@@ -1,23 +1,33 @@
+
+<h4>You must input your Number</h4>
+
 <form novalidate>
-  <input class="form-control" [formControl]="contrloNumber"  [(ngModel)]="number"  minlength="4" maxlength="4">
-  
-  <button [disabled]="(contrloNumber.invalid || ended)" (click)="onClickCreateUser()">Send</button>
-  <button [disabled]="!ended" [routerLink]="['']">Restart</button>
+  <label >
+  <input class="form-control" [formControl]="contrloNumber"  [(ngModel)]="number" required  minlength="4" maxlength="4">
+</label><br>
+  <button type="button" class="btn btn-primary" [disabled]="(contrloNumber.invalid || ended)" (click)="onClickCreateUser()">Send</button>
+  <button type="button" class="btn btn-danger" [disabled]="!ended" [routerLink]="['']">Restart</button>
 </form>
  
 <div *ngIf="win"> Siz yutdingiz</div>
 <table>
   Sizning Qolgan imkoniyatlaringiz {{attempt}} ta
   
-  <tr *ngFor="let item of attempts">
-    <th>M:</th>
-   <td>
-     {{item.m}}
-   </td>
-   <th>P: </th>
-   <td>
-   {{item.p}}
-  </td>
-  </tr>
-</table>
-<router-outlet></router-outlet>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">M</th>
+        <th scope="col">P</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of attempts">
+        <th scope="row">#</th>
+        <td>{{item.m}}</td>
+        <td>{{item.p}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <router-outlet></router-outlet>
